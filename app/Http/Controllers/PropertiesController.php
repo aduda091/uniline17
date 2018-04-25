@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\BasePrice;
 use App\Discount;
 use App\Property;
 use App\Unit;
@@ -51,6 +52,9 @@ class PropertiesController extends Controller
     {
         $property = Property::findOrFail($id);
         $property->units = Unit::where("property_id", $id)->get();
+        foreach ($property->units as $unit) {
+            $unit->base_prices = BasePrice::where("unit_id", $unit->id)->get();
+        }
         $property->discounts = Discount::where("property_id", $id)->get();
         return $property;
     }
