@@ -16,7 +16,6 @@ const app = new Vue({
     },
     created() {
         axios.get("properties").then(response =>   {
-            console.log(response.data);
             this.properties = response.data;
         });
     },

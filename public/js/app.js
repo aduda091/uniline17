@@ -13894,7 +13894,6 @@ var app = new Vue({
         var _this = this;
 
         axios.get("properties").then(function (response) {
-            console.log(response.data);
             _this.properties = response.data;
         });
     },
@@ -47329,6 +47328,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ["properties"],
@@ -47346,17 +47356,33 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", {}, [
+  return _c("div", [
     _c("h2", [_vm._v("Odaberite objekt:")]),
     _vm._v(" "),
     _c(
-      "ul",
-      { staticClass: "list-group" },
+      "div",
+      { staticClass: "row" },
       _vm._l(_vm.properties, function(property) {
-        return _c("li", { staticClass: "list-group-item" }, [
-          _vm._v(
-            _vm._s(property.name) + " (" + _vm._s(property.destination) + ")"
-          )
+        return _c("div", { staticClass: "col-sm-12 col-md-6 col-lg-4 mb-4" }, [
+          _c("div", { staticClass: "card text-center" }, [
+            _c("div", { staticClass: "card-header" }, [
+              _c("h5", [_vm._v(_vm._s(property.destination))])
+            ]),
+            _vm._v(" "),
+            _c("img", {
+              staticClass: "card-img-top",
+              attrs: {
+                src: "https://loremflickr.com/320/240/sea?lock=" + property.id,
+                alt: property.name
+              }
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-body" }, [
+              _c("h5", { staticClass: "card-title" }, [
+                _vm._v(_vm._s(property.name) + " ")
+              ])
+            ])
+          ])
         ])
       })
     )

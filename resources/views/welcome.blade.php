@@ -33,7 +33,7 @@
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="text" placeholder="Pretraga" aria-label="Pretraga" v-model="searchTerm">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Traži</button>
+                {{--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Traži</button>--}}
             </form>
         </div>
     </nav>
@@ -44,10 +44,7 @@
         <div class="jumbotron">
             <div class="container">
                 <h1 class="display-4">Kalkulacija cijene smještaja</h1>
-                <p class="lead">Turistička agencija nudi gostima smještaj u velikom broju smještajnih objekata, koji
-                    mogu imati više smještajnih jedinica, kao što su apartmani, sobe ili kompletne kuće. Objekti i njihove jedinice
-                    imaju različite osobine, mogu primiti različit broj osoba, pripadaju različitim vlasnicima, te se
-                    naravno smještaj u njima plaća po različitim cijenama. Osim osnovne cijene, cjenici turističkog
+                <p class="lead">Turistička agencija nudi gostima smještaj u velikom broju smještajnih objekata. Osim osnovne cijene, cjenici turističkog
                     smještaja obično sadrže popuste i doplate, a u izračunu konačnog iznosa potrebno je obratiti
                     pozornost i na druge stavke, kao što je npr. boravišna taksa.</p>
             </div>
