@@ -2,24 +2,32 @@
     <div>
         <h1 class="mb-4">{{ name }} - {{ destination }}</h1>
         <h3 class="mb-5">Smještajne jedinice:</h3>
-        <div class="row">
-            <div class="col-md-4 col-sm-12 mb-4">
-                <ul class="list-group">
-                    <li @click="showUnitDetails(unit)" class="list-group-item list-group-item-action" v-for="unit in units">{{ unit.type | capitalize }} {{ unit.name }}</li>
-                </ul>
-            </div>
+        <div class="row center">
+            <div class="col-sm-12 col-md-6 col-lg-3 mb-4" v-for="unit in units">
+                <div class="card text-center shadow" @click="showUnitDetails(unit)">
 
-            <div class="col-md-8 col-sm-12">
-                <div class="tab-pane">
-                    <UnitDetails :unit="selectedUnit"></UnitDetails>
+                        <h5 class="card-header">{{ unit.type | translate }} </h5>
+
+                    <div class="card-body">
+                        <h5 class="card-title">{{ unit.name }} </h5>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <div class="col-sm-12">
+
+            <UnitDetails :unit="selectedUnit"></UnitDetails>
+
+        </div>
     </div>
+
+
 </template>
 
 <script>
     import UnitDetails from "./UnitDetails";
+
     export default {
         name: "PropertyDetails",
         components: {UnitDetails},
@@ -60,11 +68,25 @@
                 if (!value) return '';
                 value = value.toString();
                 return value.charAt(0).toUpperCase() + value.slice(1)
+            },
+            translate(eng) {
+                switch (eng.toLowerCase()) {
+                    case "apartment":
+                        return "Apartman";
+                    case "room":
+                        return "Soba";
+                    case "house":
+                        return "Kuća";
+                    default:
+                        return eng;
+                }
             }
         }
     }
 </script>
 
 <style scoped>
-
+    .card {
+        cursor: pointer;
+    }
 </style>

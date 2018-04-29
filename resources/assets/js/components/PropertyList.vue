@@ -8,11 +8,11 @@
                     pozornost i na druge stavke, kao što je npr. boravišna taksa.</p>
             </div>
         </div>
-        <h2>Odaberite objekt:</h2>
+        <h2 class="mb-4">Odaberite objekt:</h2>
         <div class="row">
             <div class="col-sm-12 col-md-6 col-lg-4 mb-4" v-for="property in properties">
 
-                <div class="card text-center">
+                <div class="card text-center shadow">
                     <div class="card-header">
                         <h5>{{property.destination}}</h5>
                     </div>

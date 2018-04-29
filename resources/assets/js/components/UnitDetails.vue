@@ -1,14 +1,26 @@
 <template>
     <div>
         <h4>{{unit.name}}</h4>
-        <div v-for="base in unit.base_prices">
-            <p>Dostupno od: {{base.from | toHrDate}} do {{base.to | toHrDate}}</p>
-
-            <p>Minimalno noćenja: {{base.min_nights}}</p>
-            <p>Minimalno osoba: {{base.nr_persons}}</p>
-            <p>Dani: svi</p>
-            <p>Cijena: {{base.price}}</p>
-        </div>
+        <table class="table table-dark table-bordered table-responsive-md">
+            <thead>
+            <tr>
+                <th>Dostupno od:</th>
+                <th>Dostupno do:</th>
+                <th>Minimalno noćenja:</th>
+                <th>Broj osoba:</th>
+                <th>Dani:</th>
+                <th>Cijena:</th>
+            </tr>
+            </thead>
+            <tr v-for="base in unit.base_prices">
+                <td>{{base.from | toHrDate}}</td>
+                <td>{{base.to | toHrDate}}</td>
+                <td>{{base.min_nights}}</td>
+                <td>{{base.nr_persons}}</td>
+                <td>svi</td>
+                <td>{{base.price}}</td>
+            </tr>
+        </table>
     </div>
 </template>
 
