@@ -11,14 +11,14 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
-    <link rel="stylesheet" href="../public/css/app.css">
+    <link rel="stylesheet" href={{ asset('css/app.css') }}>
 </head>
 <body>
 <div class="container" id="app">
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-        <a class="navbar-brand" href="#">
+        <router-link class="navbar-brand" to="/" exact>
             <img src="http://static.uniline-cdn.eu/images/2016/logo.png" alt="Uniline logo" height="40px">
-        </a>
+        </router-link>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarDefault"
                 aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -27,38 +27,28 @@
         <div class="collapse navbar-collapse" id="navbarDefault">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Početna <span class="sr-only">(current)</span></a>
+                    <router-link class="nav-link" to="/" exact>
+                        Početna
+                    </router-link>
                 </li>
 
             </ul>
             <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="text" placeholder="Pretraga" aria-label="Pretraga" v-model="searchTerm">
-                {{--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Traži</button>--}}
+                <input class="form-control mr-sm-2" type="text" placeholder="Pretraga" aria-label="Pretraga"
+                       v-model="searchTerm">
             </form>
         </div>
     </nav>
 
     <main role="main">
 
-        <!-- Main jumbotron for a primary marketing message or call to action -->
-        <div class="jumbotron">
-            <div class="container">
-                <h1 class="display-4">Kalkulacija cijene smještaja</h1>
-                <p class="lead">Turistička agencija nudi gostima smještaj u velikom broju smještajnih objekata. Osim osnovne cijene, cjenici turističkog
-                    smještaja obično sadrže popuste i doplate, a u izračunu konačnog iznosa potrebno je obratiti
-                    pozornost i na druge stavke, kao što je npr. boravišna taksa.</p>
-            </div>
-        </div>
-
-
-        <property-list :properties="foundProperties"></property-list>
-
+        <router-view :properties="foundProperties"></router-view>
 
     </main>
 
 </div>
 
-<script type="text/javascript" src="../public/js/app.js"></script>
+<script type="text/javascript" src={{ asset('js/app.js') }}></script>
 <style>
     body {
         padding-top: 5rem;

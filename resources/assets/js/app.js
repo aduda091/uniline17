@@ -1,13 +1,34 @@
 require('./bootstrap');
-
+/*
 window.Vue = require('vue');
+window.VueRouter = require('vue-router');*/
+
+import Vue from 'vue'
+import VueRouter from 'vue-router';
+import PropertyList from './components/PropertyList';
+import PropertyDetails from './components/PropertyDetails';
+
 
 axios.defaults.baseURL = '/uniline17/public/api/';
 
-Vue.component('property-list', require('./components/PropertyList.vue'));
+//let PropertyList =
+    Vue.component('property-list', PropertyList);
+//let PropertyDetails =
+    Vue.component('property-details', PropertyDetails);
 
+const routes = [
+    { path: '/', component: PropertyList },
+    { path: '/:id', component: PropertyDetails }
+];
+
+const router = new VueRouter({
+    routes // short for `routes: routes`
+});
+
+Vue.use(VueRouter);
 const app = new Vue({
     el: '#app',
+    router,
     data: function () {
         return {
             searchTerm: "",
