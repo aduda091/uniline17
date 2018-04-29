@@ -14,8 +14,3 @@
 Route::get("/", function () {
     return view("welcome");
 });
-
-Route::resource('/api/properties', 'PropertiesController');
-Route::resource('/api/units', 'UnitsController');
-Route::resource('/api/base_prices', 'BasePricesController');
-Route::resource('/api/discounts', 'DiscountsController');
