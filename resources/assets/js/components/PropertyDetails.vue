@@ -16,9 +16,11 @@
         </div>
 
         <div class="col-sm-12">
-
             <UnitDetails :unit="selectedUnit"></UnitDetails>
+        </div>
 
+        <div class="col-sm-12">
+            <CalculationForm v-if="loadedUnit" :propertyId="id" :unit="selectedUnit"></CalculationForm>
         </div>
     </div>
 
@@ -27,10 +29,11 @@
 
 <script>
     import UnitDetails from "./UnitDetails";
+    import CalculationForm from "./CalculationForm";
 
     export default {
         name: "PropertyDetails",
-        components: {UnitDetails},
+        components: {CalculationForm, UnitDetails},
         data: function () {
             return {
                 id: null,
@@ -39,7 +42,8 @@
                 tourist_tax: "",
                 units: [],
                 discounts: [],
-                selectedUnit: {}
+                selectedUnit: {},
+                loadedUnit: false
             }
         },
         mounted() {
@@ -61,6 +65,7 @@
             },
             showUnitDetails(unit) {
                 this.selectedUnit = unit;
+                this.loadedUnit = true;
             }
         },
         filters: {

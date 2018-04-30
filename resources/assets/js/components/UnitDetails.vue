@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h4>{{unit.name}}</h4>
+        <h4>{{unit.name}} - cjenik:</h4>
         <table class="table table-dark table-bordered table-responsive-md">
             <thead>
             <tr>
