@@ -62,8 +62,21 @@
         methods: {
             calculate() {
                 if(this.totalPersons < this.numPersons) console.log("Nedovoljno ljudi");
-                else console.log("Odraslih:" + this.adults + ", teens:" + this.teens + ", children:" + this.children + ". total:" +this.totalPersons);
-                //todo: API request to calculate
+                else {
+                    let data = {
+                        propertyId : this.propertyId,
+                        unitId : this.unit.id,
+                        dateFrom : this.dateFrom,
+                        dateTo : this.dateTo,
+                        adults : this.adults,
+                        teens : this.teens,
+                        children : this.children
+                    };
+                    axios.post("calculate", data).then(response => {
+                        console.log(response.data);
+                    })
+                }
+
             }
         }
     }

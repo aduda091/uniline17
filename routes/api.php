@@ -21,3 +21,5 @@ Route::resource('/properties', 'PropertiesController');
 Route::resource('/units', 'UnitsController');
 Route::resource('/base_prices', 'BasePricesController');
 Route::resource('/discounts', 'DiscountsController');
+
+Route::post("/calculate", "CalculationController@calculate");

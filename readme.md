@@ -23,8 +23,9 @@ GET /units/:id      // Returns all info about the selected unit
 (...) **work in progress**
 
 ## TODO:
-* Frontend
-* Cost calculation route
+* Finish the user frontend
+* Proper cost calculation
+* Admin frontend
 * CRUD functionality for all resources
 
 

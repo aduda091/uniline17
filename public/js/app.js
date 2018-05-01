@@ -50927,7 +50927,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -51002,8 +51002,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     methods: {
         calculate: function calculate() {
-            if (this.totalPersons < this.numPersons) console.log("Nedovoljno ljudi");else console.log("Odraslih:" + this.adults + ", teens:" + this.teens + ", children:" + this.children + ". total:" + this.totalPersons);
-            //todo: API request to calculate
+            if (this.totalPersons < this.numPersons) console.log("Nedovoljno ljudi");else {
+                var data = {
+                    propertyId: this.propertyId,
+                    unitId: this.unit.id,
+                    dateFrom: this.dateFrom,
+                    dateTo: this.dateTo,
+                    adults: this.adults,
+                    teens: this.teens,
+                    children: this.children
+                };
+                axios.post("calculate", data).then(function (response) {
+                    console.log(response.data);
+                });
+            }
         }
     }
 });
