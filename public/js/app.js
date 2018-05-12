@@ -50972,11 +50972,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     props: ["propertyId", "unit"],
     data: function data() {
         return {
-            dateFrom: "",
-            dateTo: "",
-            adults: 0,
-            teens: 0,
-            children: 0
+            dateFrom: "2018-08-24",
+            dateTo: "2018-08-31",
+            adults: 2,
+            teens: 1,
+            children: 1
         };
     },
     mounted: function mounted() {
@@ -51232,6 +51232,7 @@ var render = function() {
             "div",
             {
               staticClass: "card text-center shadow",
+              class: [unit.id === _vm.selectedUnit.id ? "border-primary" : ""],
               on: {
                 click: function($event) {
                   _vm.showUnitDetails(unit)

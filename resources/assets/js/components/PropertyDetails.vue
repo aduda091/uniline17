@@ -4,7 +4,7 @@
         <h3 class="mb-5">Smještajne jedinice:</h3>
         <div class="row center">
             <div class="col-sm-12 col-md-6 col-lg-3 mb-4" v-for="unit in units">
-                <div class="card text-center shadow" @click="showUnitDetails(unit)">
+                <div class="card text-center shadow" @click="showUnitDetails(unit)" :class="[unit.id === selectedUnit.id ? 'border-primary' : '']">
 
                         <h5 class="card-header">{{ unit.type | translate }} </h5>
 

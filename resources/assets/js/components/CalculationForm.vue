@@ -32,11 +32,11 @@
         props: ["propertyId", "unit"],
         data() {
             return {
-                dateFrom: "",
-                dateTo: "",
-                adults: 0,
-                teens: 0,
-                children: 0
+                dateFrom: "2018-08-24",
+                dateTo: "2018-08-31",
+                adults: 2,
+                teens: 1,
+                children: 1
             }
         },
         mounted() {
