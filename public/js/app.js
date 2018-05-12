@@ -14312,7 +14312,9 @@ window.VueRouter = require('vue-router');*/
 
 
 
+//todo: prepare for deployment
 axios.defaults.baseURL = '/uniline17/public/api/';
+// axios.defaults.baseURL = '/api/';
 
 //let PropertyList =
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('property-list', __WEBPACK_IMPORTED_MODULE_2__components_PropertyList___default.a);
@@ -50927,7 +50929,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -50972,7 +50974,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     props: ["propertyId", "unit"],
     data: function data() {
         return {
-            dateFrom: "2018-08-24",
+            dateFrom: "2018-08-24", //todo: debugging reasons
             dateTo: "2018-08-31",
             adults: 2,
             teens: 1,
@@ -51018,6 +51020,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 };
                 axios.post("calculate", data).then(function (response) {
                     console.log(response.data);
+                    //todo: display received data (modal window)
                 });
             }
         }

@@ -32,7 +32,7 @@
         props: ["propertyId", "unit"],
         data() {
             return {
-                dateFrom: "2018-08-24",
+                dateFrom: "2018-08-24",//todo: debugging reasons
                 dateTo: "2018-08-31",
                 adults: 2,
                 teens: 1,
@@ -78,6 +78,7 @@
                     };
                     axios.post("calculate", data).then(response => {
                         console.log(response.data);
+                        //todo: display received data (modal window)
                     })
                 }
 
