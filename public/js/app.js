@@ -50927,7 +50927,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -50938,6 +50938,10 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
 //
 //
 //
@@ -50977,8 +50981,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     mounted: function mounted() {
         // set min/max values for date pickers
-        this.dateFrom = this.unit.base_prices[0].from;
-        this.dateTo = this.unit.base_prices[this.unit.base_prices.length - 1].to;
+        /*this.dateFrom = this.unit.base_prices[0].from;
+        this.dateTo = this.unit.base_prices[this.unit.base_prices.length - 1].to;*/
     },
 
     computed: {
@@ -51046,16 +51050,50 @@ var render = function() {
         _c("label", [
           _vm._v("Od"),
           _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.dateFrom,
+                expression: "dateFrom"
+              }
+            ],
             staticClass: "form-control",
-            attrs: { type: "date", min: _vm.dateFrom, max: _vm.dateTo }
+            attrs: { type: "date" },
+            domProps: { value: _vm.dateFrom },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.dateFrom = $event.target.value
+              }
+            }
           })
         ]),
         _vm._v(" "),
         _c("label", [
           _vm._v("do"),
           _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.dateTo,
+                expression: "dateTo"
+              }
+            ],
             staticClass: "form-control",
-            attrs: { type: "date", min: _vm.dateFrom, max: _vm.dateTo }
+            attrs: { type: "date" },
+            domProps: { value: _vm.dateTo },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.dateTo = $event.target.value
+              }
+            }
           })
         ])
       ]),
