@@ -46,7 +46,8 @@ class DiscountsController extends Controller
      */
     public function show($id)
     {
-        //
+        $discounts = Discount::where("property_id", $id)->get();
+        return response()->json($discounts);
     }
 
     /**
