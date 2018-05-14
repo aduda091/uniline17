@@ -50929,7 +50929,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -51010,7 +51010,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         calculate: function calculate() {
             if (this.totalPersons < this.numPersons) console.log("Nedovoljno ljudi");else {
                 var data = {
-                    propertyId: this.propertyId,
+                    propertyId: parseInt(this.propertyId),
                     unitId: this.unit.id,
                     dateFrom: this.dateFrom,
                     dateTo: this.dateTo,
@@ -51021,6 +51021,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 axios.post("calculate", data).then(function (response) {
                     console.log(response.data);
                     //todo: display received data (modal window)
+                }).catch(function (err) {
+                    console.log(err);
                 });
             }
         }

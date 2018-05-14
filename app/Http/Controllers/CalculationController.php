@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\BasePrice;
 use App\Discount;
+use App\Property;
 use DateTime;
 use Illuminate\Http\Request;
 
@@ -42,16 +43,20 @@ class CalculationController extends Controller
 
         $baseCost = $this->findBaseCost();
         $discountAll = $this->findDiscount();
-        $discountPercent = $discountAll["percent"];
+        $discountPercent = floatval($discountAll["percent"]);
+        $touristTax = $this->findTouristTax();
 
-        //todo: placeholders
+        $totalCost = $baseCost - ($baseCost*$discountPercent)/100 + $touristTax["amount"];
 
-        $touristTax = 5;
-        $totalCost = 295;
-        $agencyCost = 200;
-        $spotCost = 10;
+        if($touristTax["type"] == "on-the-spot") {
+            $agencyCost = $totalCost - $touristTax["amount"];
+            $spotCost = $touristTax["amount"];
+        } else {
+            $agencyCost = $totalCost;
+            $spotCost = 0;
+        }
 
-        $res = array("baseCost" => $baseCost, "discount" => $discountAll, "touristTax" => $touristTax, "totalCost" => $totalCost, "agencyCost" => $agencyCost, "spotCost" => $spotCost, "dateFrom" => $this->dateFrom, "dateTo" => $this->dateTo);
+        $res = array("baseCost" => $baseCost, "discount" => $discountAll, "touristTax" => $touristTax, "totalCost" => $totalCost, "agencyCost" => $agencyCost, "spotCost" => $spotCost);
 
         return response()->json($res);
         //todo: respond with error when errors are found
@@ -132,6 +137,28 @@ class CalculationController extends Controller
         }
 
 
+    }
+
+    private function findTouristTax()
+    {
+        //find the type of property tax used
+        $tax = Property::where("id", $this->propertyId)->get(["tourist_tax"])->first();
+        $taxType = $tax->tourist_tax;
+
+        if($taxType == "included") {
+            //no need to further calculate tax as it is included in the base cost
+            $result = array("type" => $taxType, "amount" => 0);
+            return $result;
+        }
+
+        //todo: refactor, DRY
+        $userFrom = new DateTime($this->dateFrom);
+        $userTo = new DateTime($this->dateTo);
+        $days = $userFrom->diff($userTo)->d;
+
+        $taxAmount = $days*($this->adults) + 0.5*($days)*$this->teens;
+        $result = array("type" => $taxType, "amount" => $taxAmount);
+        return $result;
     }
 
 }

@@ -68,7 +68,7 @@
                 if (this.totalPersons < this.numPersons) console.log("Nedovoljno ljudi");
                 else {
                     let data = {
-                        propertyId: this.propertyId,
+                        propertyId: parseInt(this.propertyId),
                         unitId: this.unit.id,
                         dateFrom: this.dateFrom,
                         dateTo: this.dateTo,
@@ -79,6 +79,8 @@
                     axios.post("calculate", data).then(response => {
                         console.log(response.data);
                         //todo: display received data (modal window)
+                    }).catch(err => {
+                        console.log(err);
                     })
                 }
 
