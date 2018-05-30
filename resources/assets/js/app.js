@@ -7,14 +7,15 @@ import Vue from 'vue'
 import VueRouter from 'vue-router';
 import PropertyList from './components/PropertyList';
 import PropertyDetails from './components/PropertyDetails';
+import CalculationResult from './components/CalculationResult';
 
 //axios.defaults.baseURL = '/uniline17/public/api/';
 axios.defaults.baseURL = '/api/';
 
-//let PropertyList =
-    Vue.component('property-list', PropertyList);
-//let PropertyDetails =
-    Vue.component('property-details', PropertyDetails);
+Vue.component('property-list', PropertyList);
+
+Vue.component('property-details', PropertyDetails);
+
 
 const routes = [
     { path: '/', component: PropertyList },
@@ -22,7 +23,7 @@ const routes = [
 ];
 
 const router = new VueRouter({
-    routes // short for `routes: routes`
+    routes
 });
 
 Vue.use(VueRouter);
@@ -36,7 +37,7 @@ const app = new Vue({
         }
     },
     created() {
-        axios.get("properties").then(response =>   {
+        axios.get("properties").then(response => {
             this.properties = response.data;
         });
     },
@@ -45,13 +46,13 @@ const app = new Vue({
             //search by property name or destination
             let term = this.searchTerm;
             let allProperties = this.properties;
-            if(!term) return allProperties;
+            if (!term) return allProperties;
             term = term.trim().toLowerCase();
 
             return allProperties.filter(property => {
                 let found = property.name.toLowerCase().indexOf(term) !== -1;
                 found |= property.destination.toLowerCase().indexOf(term) !== -1;
-                if(found) return property;
+                if (found) return property;
             });
 
         }

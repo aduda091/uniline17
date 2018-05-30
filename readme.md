@@ -28,8 +28,8 @@ POST /calculate     //  Returns the requested calculations
 (...) **work in progress**
 
 ## TODO:
-* Finish the user frontend
-* Proper cost calculation
+* Finish the user frontend (smoother UX, animations,transitions)
+* Proper cost calculation (with error checking)
 * Admin frontend
 * CRUD functionality for all resources
 
