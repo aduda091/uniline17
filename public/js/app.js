@@ -14312,9 +14312,8 @@ window.VueRouter = require('vue-router');*/
 
 
 
-//todo: prepare for deployment
-axios.defaults.baseURL = '/uniline17/public/api/';
-// axios.defaults.baseURL = '/api/';
+//axios.defaults.baseURL = '/uniline17/public/api/';
+axios.defaults.baseURL = '/api/';
 
 //let PropertyList =
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('property-list', __WEBPACK_IMPORTED_MODULE_2__components_PropertyList___default.a);
