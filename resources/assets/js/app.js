@@ -8,9 +8,8 @@ import VueRouter from 'vue-router';
 import PropertyList from './components/PropertyList';
 import PropertyDetails from './components/PropertyDetails';
 
-//todo: prepare for deployment
-axios.defaults.baseURL = '/uniline17/public/api/';
-// axios.defaults.baseURL = '/api/';
+//axios.defaults.baseURL = '/uniline17/public/api/';
+axios.defaults.baseURL = '/api/';
 
 //let PropertyList =
     Vue.component('property-list', PropertyList);

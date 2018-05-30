@@ -17,6 +17,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('/', function() {
+    return "API route working!";
+});
+
 Route::resource('/properties', 'PropertiesController');
 Route::resource('/units', 'UnitsController');
 Route::resource('/base_prices', 'BasePricesController');
