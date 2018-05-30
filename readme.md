@@ -5,8 +5,10 @@
 > Full-stack project that calculates the total cost of tourist accomodation.
 > Using Laravel PHP framework and Vue.js
 
+Hosted at [Heroku](http://uniline-17.herokuapp.com/)
+
 ## Endpoints
-### /public/api
+### /api
 ```bash
 GET /properties     // List all properties
 ```
@@ -18,6 +20,9 @@ GET /units          // List all units
 ```
 ```bash
 GET /units/:id      // Returns all info about the selected unit 
+```
+```bash
+POST /calculate     //  Returns the requested calculations
 ```
 
 (...) **work in progress**
